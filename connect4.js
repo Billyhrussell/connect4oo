@@ -7,9 +7,13 @@ class Game{
     this.board = [];
     this.currPlayer = 1;
     this.makeBoard();
+    this.handleClick = this.handleClick.bind(this);
     this.makeHtmlBoard();
 
+
   }
+
+
 
   makeBoard(){
     for (let y = 0; y < this.height; y++) {
@@ -23,7 +27,7 @@ class Game{
     // make column tops (clickable area for adding a piece to that column)
     const top = document.createElement('tr');
     top.setAttribute('id', 'column-top');
-    top.addEventListener('click', this.handleClick.bind(this));
+    top.addEventListener('click', this.handleClick);
 
     for (let x = 0; x < this.width; x++) {
       const headCell = document.createElement('td');
@@ -82,6 +86,8 @@ handleClick(evt) {
 
   // check for win
   if (this.checkForWin()) {
+    const gameBoardListener = document.getElementById("column-top");
+    gameBoardListener.removeEventListener('click', this.handleClick);
     return this.endGame(`Player ${this.currPlayer} won!`);
   }
 
@@ -133,5 +139,12 @@ endGame(msg) {
 
 }
 
+function buttonClicked(evt){
+  let btn = document.getElementById("button");
+  btn.addEventListener("click",);
+
+}
+
+
 const g = new Game(6,7); //assuming constructor takes height, width
-const g2 = new Game(7,8);
+
