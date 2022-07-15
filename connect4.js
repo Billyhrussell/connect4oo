@@ -1,5 +1,7 @@
 "use strict";
 
+buttonClicked();
+
 class Game{
   constructor(width, height){
     this.width = width;
@@ -139,12 +141,15 @@ endGame(msg) {
 
 }
 
-function buttonClicked(evt){
+function buttonClicked(){
   let btn = document.getElementById("button");
-  btn.addEventListener("click",);
+  btn.addEventListener("click", function(e) {
 
+    const g = new Game(6,7);
+
+  });
 }
 
 
-const g = new Game(6,7); //assuming constructor takes height, width
+
 
